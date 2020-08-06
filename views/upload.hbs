@@ -1,0 +1,18 @@
+ <h4>Upload a Note</h4>
+ 
+ {{#if message}}
+ <h5 class="message">{{message}}</h5>
+{{/if}}
+ <form action = '/note/api/' method = "POST" enctype = "multipart/form-data">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description">
+  <label for="price">Price:</label><br>
+  <input type="number" id="price" name="price">
+  <label for="file">Choose File</label>
+  <input type="file" name="file" id="file">
+  <label for="previewImg">Choose image for preview:</label>
+  <input type="file" name="previewImg" id="file">
+  <button type="submit">Submit</button>
+</form> 

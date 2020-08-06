@@ -1,0 +1,67 @@
+ <div class="card horizontal small">
+        <div class="card-image">
+        <img src="/uploads/{{this.previewImg}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Title: {{this.title}}</p>
+          <p>Description: {{this.description}}</p>
+          <p>Author: {{this.author}}</p>
+          <p>Price: Rs. {{this.price}}</p>
+          <p>Average rating: {{this.ratingsAverage}} - from {{this.ratingsNumber}} ratings</p>
+        </div>
+        <div class="card-action">
+           {{#if this.hasPurchased}}
+          <a href="/note/download/{{this._id}}">Download the note</a>
+          {{else}}
+           <a href="/note/buy/{{this._id}}">Buy the note</a>
+          {{/if}}
+         
+          {{#if this.addedToCart}}
+          <a href="/cart/delete/{{this._id}}">Remove from Cart</a>
+          {{else}}
+          <a href="/cart/{{this._id}}">Add to Cart</a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+
+  {{#if this.hasReviewed}}
+ {{!-- <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">{{this.myReview.title}}</span>
+      <p>{{this.myReview.description}}</p>
+      <p>Your rating: {{this.myReview.rating}}/10.</p>
+    </div>
+  </div> --}}
+  {{else}}
+
+      <form action="/review/add"  method="POST" >
+      <label for="title">Title for the review:</label><br>
+      <input type="text" id="title" name="title"><br>
+      <label for="description">Description for the review:</label><br>
+      <input type="text" id="description" name="description">
+      <label for="rating">Rating (out of 10):</label><br>
+      <input type="number" id="rating" name="rating">
+      <input type="text" name="noteId" value="{{this._id}}" hidden>
+      <button type="submit">Submit Review</button>
+      </form>
+  {{/if}}
+
+  {{#each this.reviews}}
+
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">{{this.authorName}}</span>
+        <p>{{this.title}}</p>
+      <p>{{this.description}}</p>
+    </div>
+    <div class="card-action">
+      <p>Rating: {{this.rating}}/10</p>
+    </div>
+  </div>
+
+
+  {{/each}}
+

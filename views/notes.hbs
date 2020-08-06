@@ -1,0 +1,22 @@
+<div class="col s12 m7 ">
+  {{#each notes}}
+  <div class="card horizontal small">
+    <div class="card-image">
+      <img src="/uploads/{{this.previewImg}}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p>Title: {{this.title}}</p>
+        <p>Description: {{this.description}}</p>
+        <p>Author: {{this.author}}</p>
+        <p>Price: Rs. {{this.price}}</p>
+        <p>Average rating: {{this.ratingsAverage}} - from {{this.ratingsNumber}} ratings</p>
+      </div>
+      <div class="card-action">
+        <a href="/note/{{this._id}}">Go to the note</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+</div>

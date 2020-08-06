@@ -1,0 +1,24 @@
+<h5 style="padding-bottom: 20px;">Items in your cart</h5>
+
+
+<div class="col s12 m7 ">
+    {{#each cartItems}}
+        <div class="card horizontal small">
+        <div class="card-image">
+        <img src="/uploads/{{this.note.previewImg}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Title: {{this.note.title}}</p>
+          <p>Description: {{this.note.description}}</p>
+          <p>Author: {{this.note.author}}</p>
+          <p>Price: Rs. {{this.note.price}}</p>
+          <p>Added on: {{this.addedAt}}</p>
+        </div>
+        <div class="card-action">
+          <a href="/note/{{this.note._id}}">Go to the note</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
